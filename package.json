@@ -1,0 +1,22 @@
+{
+  "name": "bloomays",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "concurrently \"cd frontend && npm run start\" \"cd backend && npm run start\"",
+    "postinstall": "(cd backend && npm install) && (cd frontend && npm install)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulRouss3l/Bloomays-test.git"
+  },
+  "author": "Paul Roussel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulRouss3l/Bloomays-test/issues"
+  },
+  "homepage": "https://github.com/PaulRouss3l/Bloomays-test#readme",
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
