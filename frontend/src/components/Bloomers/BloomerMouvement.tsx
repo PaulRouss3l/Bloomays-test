@@ -50,6 +50,7 @@ const StyledListItem = styled.li<{ green: number }>`
 
 const DateLi = styled.div`
   font-size: 15px;
+  margin-bottom: 5px;
   &:before{
     margin-left: -8px;
     margin-right: 10px;
@@ -68,9 +69,12 @@ display: inline-block;
 `;
 
 const Name = styled.div`
+  &:last-child{
+    margin-bottom: 10px;
+  }
   color: #cacaca;
   font-weight: 300;
-  height: 24px;
+  min-height: 24px;
   width: 100%;
   display: flex;
   margin-left: 15px;

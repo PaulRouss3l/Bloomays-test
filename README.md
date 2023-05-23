@@ -24,4 +24,4 @@ This will launch both front and back end on port 3001 and 3000 respectivly
 npm start
 ```
 
-![image](https://github.com/PaulRouss3l/Bloomays-test/assets/40837250/0e5936d2-e683-4dbc-8f3c-c240eeff451d)
+![image](https://github.com/PaulRouss3l/Bloomays-test/assets/40837250/85404604-b491-4083-a5ba-97a5d77c85e3)
