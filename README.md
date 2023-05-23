@@ -2,6 +2,16 @@
 
 ## installation
 
+You'll need to fill the .env in backend and frontend application
+
+```
+cd backend
+cp .env.sample .env
+cd ../frontend
+cp .env.sample .env
+```
+N.B: If you want to use airtable, fill your API keys in the back .env
+
 ```
 npm i
 ```
