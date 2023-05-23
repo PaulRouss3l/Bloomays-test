@@ -9,7 +9,7 @@ export class LeavingArrivingController {
   ) {}
 
   @Get()
-  getMissions(): Mission[] {
+  async getMissions(): Promise<Mission[]> {
     return this.LeavingArrivingService.getMissions();
   }
 }

@@ -10,18 +10,36 @@ export const fetchMissionData = async () => {
   } catch (error) {
     console.error(error);
   }
+  return []
 }
 
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('fr-FR');
+}
 
-export const groupByDate = (missions: Mission[], attr: 'beginDate' | 'endDate', queryDateParam?: string): Bloomers => {
-  const queryDate = queryDateParam ? queryDateParam : new Date().toLocaleDateString()
+export const groupByDate = (missions: Mission[], attr: 'beginDate' | 'endDate', queryDateParam?: Date): Bloomers => {
+  const queryDate = queryDateParam ? queryDateParam : new Date();
+  const endOfNextMonth = new Date(queryDate.getFullYear(), queryDate.getMonth() + 2, 0);
 
-  const selectedMissions = missions.filter((mission) => mission[attr] >= queryDate)
+  // filter out irrelevant missions and format date to be displayed
+  const selectedMissions = missions
+    .map((mission) => ({
+        ...mission,
+        beginDate: new Date(mission.beginDate),
+        endDate: new Date(mission.endDate),
+    }))
+    .filter((mission) => mission[attr] >= queryDate && mission[attr] <= endOfNextMonth )
+    .map((mission) => ({
+      ...mission,
+      beginDate: formatDate(mission.beginDate),
+      endDate: formatDate(mission.endDate),
+  }))
+
   return selectedMissions.reduce((acc: Bloomers, mission: Mission) => {
     const missionDate = mission[attr]
 
     if (missionDate in acc) {
-      acc[missionDate].concat([mission])
+      acc[missionDate].push(mission)
     } else {
       acc[missionDate] = [mission]
     }

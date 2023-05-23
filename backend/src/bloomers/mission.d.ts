@@ -1,4 +1,4 @@
-type MissionType = 'OneShot' | 'Renewable';
+type MissionType = string;
 
 export interface Freelance {
   id: string;
