@@ -13,7 +13,7 @@ describe('LeavingArrivingController', () => {
   });
 
   describe('getHello', () => {
-    it('should return dummy data', () => {
+    it('should return dummy data', async () => {
       const expected = [
         {
           beginDate: '9/18/2023',
@@ -69,7 +69,8 @@ describe('LeavingArrivingController', () => {
         },
       ];
       const LeavingArrivingController = app.get(RealLeavingArrivingController);
-      expect(LeavingArrivingController.getMissions()).toEqual(expected);
+      const result = await LeavingArrivingController.getMissions();
+      expect(result).toEqual(expected);
     });
   });
 });
